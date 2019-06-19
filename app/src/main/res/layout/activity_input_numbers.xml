@@ -10,70 +10,70 @@
         android:paddingLeft="@dimen/activity_horizontal_margin"
         android:paddingRight="@dimen/activity_horizontal_margin"
         android:paddingTop="@dimen/activity_vertical_margin"
-        tools:context=".ui.login.LoginActivity">
+        tools:context=".InputNumbersActivity">
 
     <EditText
-            android:id="@+id/username"
+            android:id="@+id/et_number_1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
             android:layout_marginTop="96dp"
             android:layout_marginEnd="24dp"
-
-            android:hint="@string/prompt_email"
-            android:inputType="textEmailAddress"
+            android:hint="@string/hint_number_1"
+            android:inputType="number"
             android:selectAllOnFocus="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"/>
 
     <EditText
-            android:id="@+id/password"
+            android:id="@+id/et_number_2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="24dp"
-
-            android:hint="@string/prompt_password"
-            android:imeActionLabel="@string/action_sign_in_short"
+            android:hint="@string/hint_number_2"
             android:imeOptions="actionDone"
-            android:inputType="textPassword"
+            android:inputType="number"
             android:selectAllOnFocus="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/username"/>
+            app:layout_constraintTop_toBottomOf="@+id/et_number_1"/>
 
     <Button
-            android:id="@+id/login"
-            android:enabled="false"
+            android:id="@+id/send"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
             android:layout_gravity="start"
             android:layout_marginStart="48dp"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="48dp"
             android:layout_marginBottom="64dp"
-            android:text="@string/action_sign_in"
+            android:textColor="@android:color/white"
+            android:text="@string/t_send_to_flutter"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/password"
+            app:layout_constraintTop_toBottomOf="@+id/et_number_2"
             app:layout_constraintVertical_bias="0.2"/>
-
-    <ProgressBar
-            android:id="@+id/loading"
-            android:visibility="gone"
+    <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="64dp"
-            android:layout_marginEnd="32dp"
-            android:layout_marginBottom="64dp"
+            android:id="@+id/tvResult"
+            app:layout_constraintTop_toBottomOf="@+id/send"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/colorAccent"
+            android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/password"
-            app:layout_constraintStart_toStartOf="@+id/password"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.3"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="8dp"
+            android:text="Result number will be shown here."/>
+
+
 </android.support.constraint.ConstraintLayout>
