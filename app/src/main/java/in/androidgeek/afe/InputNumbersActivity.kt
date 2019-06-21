@@ -21,7 +21,7 @@ class InputNumbersActivity : AppCompatActivity() {
     }
 
     private fun sendDataToFlutterModule(first: Int, second: Int) {
-        //TODO will be implemented later
+        FlutterViewActivity.startActivity(this)
     }
 
     private fun isInputValid(): Pair<Int, Int>? {
