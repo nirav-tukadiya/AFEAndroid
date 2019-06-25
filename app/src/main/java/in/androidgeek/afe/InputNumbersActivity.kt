@@ -1,5 +1,8 @@
 package `in`.androidgeek.afe
 
+import android.annotation.SuppressLint
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.widget.Toast
@@ -21,7 +24,27 @@ class InputNumbersActivity : AppCompatActivity() {
     }
 
     private fun sendDataToFlutterModule(first: Int, second: Int) {
-        FlutterViewActivity.startActivity(this)
+        FlutterViewActivity.startActivity(this, first, second)
+    }
+
+    @SuppressLint("SetTextI18n")
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (requestCode == 100) {
+            if (resultCode == Activity.RESULT_OK) {
+                val result = data?.extras?.getInt("result")
+                val operation = data?.extras?.getString("operation")
+
+                tvResult.text = "${when (operation) {
+                    "Add" -> "Addition"
+                    "Multiply" -> "Multiplication"
+                    else -> "NA"
+                }} of the entered numbers is $result"
+            } else {
+                tvResult.text = "Could not perform the operation"
+            }
+        }
     }
 
     private fun isInputValid(): Pair<Int, Int>? {
